@@ -22,8 +22,9 @@ class FileFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->file($sourceDir, $targetDir, false),
-            'path' => $this->faker->file($sourceDir = '/tmp', $targetDir = '/tmp'),
+            'name' => "project.txt",
+            'path' => "D/App/Project.txt",
+            'status' => "active",
             'size' => $this->faker->numberBetween($min = 5, $max = 20),
             'type' => $this->faker->fileExtension
         ];

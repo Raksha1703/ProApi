@@ -23,10 +23,10 @@ class ProjectFactory extends Factory
     {
         return [
             'name' => $this->faker->name,
-            //'technology' => $this->faker->
+            'technology' => "Laravel",
             'startdate' => $this->faker->date($format = 'Y-m-d', $max = 'now'),
             'enddate' => $this->faker->date($format = 'Y-m-d', $max = 'now'),
-            //'status' => $this->faker->
+            'status' => "active",
             'desc' => $this->faker->sentence($nbWords = 6, $variableNbWords = true)
         ];
     }

@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\Task;
+use App\Models\Category;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class TaskFactory extends Factory
+class CategoryFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Task::class;
+    protected $model = Category::class;
 
     /**
      * Define the model's default state.
@@ -22,9 +22,9 @@ class TaskFactory extends Factory
     public function definition()
     {
         return [
-            'title' => $this->faker->name,
-            'priority' => "high",
-            'status' => "active",             
+            'name' => $this->faker->name(),
+            //'slug' => $this->faker->
+            'type' => $this->faker->name(),            
         ];
     }
 }
