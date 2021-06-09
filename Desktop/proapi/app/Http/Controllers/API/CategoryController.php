@@ -14,4 +14,10 @@ class CategoryController extends Controller
         //$category = category::factory()->count(10)->create();
         return response(['category' => $category, 'message' => 'data retrive successfully'],200);
     }
+    public function save(Request $request)
+    {
+        $data=$request->all();
+        $category = category::create($data);
+        return response(['category' => $category, 'message' => 'data save successfully'],201);
+    }
 }

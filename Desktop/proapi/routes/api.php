@@ -25,14 +25,23 @@ use App\Http\Controllers\API\CategoryController;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::get('/faculty', [ProfileController::class, 'index']);
+Route::get('/profile', [ProfileController::class, 'index']);
+Route::post('/profile', [ProfileController::class, 'save']);
 
 Route::get('/project', [ProjectController::class, 'index']);
+Route::post('/project', [ProjectController::class, 'save']);
+Route::put('/products/{id}', [ProjectController::class, 'update']);
+Route::delete('/project{$id}', [ProjectController::class, 'delete']);
+
 
 Route::get('/task', [TaskController::class, 'index']);
+Route::post('/task', [TaskController::class, 'save']);
 
 Route::get('/file', [FileController::class, 'index']);
+Route::post('/file', [FileController::class, 'save']);
 
 Route::get('/role', [RoleController::class, 'index']);
+Route::post('/role', [RoleController::class, 'save']);
 
 Route::get('/category', [CategoryController::class, 'index']);
+Route::post('/category', [CategoryController::class, 'save']);

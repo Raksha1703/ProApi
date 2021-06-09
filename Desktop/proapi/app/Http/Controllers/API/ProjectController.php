@@ -14,4 +14,26 @@ class ProjectController extends Controller
         //$project = project::factory()->count(10)->create();
         return response(['project' => $project, 'message' => 'data retrive successfully'],200);
     }
+
+    public function save(Request $request)
+    {
+        $data=$request->all();
+        $project = project::create($data);
+        return response(['project' => $project, 'message' => 'data save successfully'],201);
+    }
+
+    public function update(Request $request, $id)
+    {   //return $request->all();
+        $project = project::find($id);
+        $project->name=$request->name;
+        $project->save();
+        return response(['project' => $project, 'message' => 'data updated successfully'],201);
+    }
+
+    public function delete($id)
+    {
+        $project = project::destroy($id);
+        return response(['project' => $project, 'message' => 'data deleted successfully'],401);
+        
+    }
 }

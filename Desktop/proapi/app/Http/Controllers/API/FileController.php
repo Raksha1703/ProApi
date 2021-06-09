@@ -14,4 +14,10 @@ class FileController extends Controller
         //$file = file::factory()->count(10)->create();
         return response(['file' => $file, 'message' => 'data retrive successfully'],200);
     }
+    public function save(Request $request)
+    {
+        $data=$request->all();
+        $file = file::create($data);
+        return response(['file' => $file, 'message' => 'data save successfully'],201);
+    }
 }

@@ -10,8 +10,14 @@ class ProfileController extends Controller
 {
     public function index()
     {
-        $faculty = profile::all();
-        //$faculty = profile::factory()->count(10)->create();
-        return response(['faculty' => $faculty, 'message' => 'data retrive successfully'],200);
+        $profile = profile::all();
+        //$profile = profile::factory()->count(10)->create();
+        return response(['faculty' => $profile, 'message' => 'data retrive successfully'],200);
+    }
+    public function save(Request $request)
+    {
+        $data=$request->all();
+        $profile = profile::create($data);
+        return response(['profile' => $profile, 'message' => 'data save successfully'],201);
     }
 }
