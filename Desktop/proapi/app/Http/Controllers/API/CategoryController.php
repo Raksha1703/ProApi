@@ -20,4 +20,17 @@ class CategoryController extends Controller
         $category = category::create($data);
         return response(['category' => $category, 'message' => 'data save successfully'],201);
     }
+    public function update(Request $request, $id)
+    {   //return $request->all();
+        $category = category::find($id);
+        $category->name=$request->name;
+        $category->save();
+        return response(['category' => $category, 'message' => 'data updated successfully'],201);
+    }
+    public function delete($id)
+    {
+        $category = category::destroy($id);
+        return response(['category' => $category, 'message' => 'data deleted successfully'],401);
+        
+    }
 }

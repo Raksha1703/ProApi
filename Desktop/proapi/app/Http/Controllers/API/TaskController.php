@@ -20,4 +20,17 @@ class TaskController extends Controller
         $task = task::create($data);
         return response(['task' => $task, 'message' => 'data save successfully'],201);
     }
+    public function update(Request $request, $id)
+    {   //return $request->all();
+        $task = task::find($id);
+        $task->name=$request->name;
+        $task->save();
+        return response(['task' => $task, 'message' => 'data updated successfully'],201);
+    }
+    public function delete($id)
+    {
+        $task = task::destroy($id);
+        return response(['task' => $task, 'message' => 'data deleted successfully'],401);
+        
+    }
 }

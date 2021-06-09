@@ -20,4 +20,17 @@ class FileController extends Controller
         $file = file::create($data);
         return response(['file' => $file, 'message' => 'data save successfully'],201);
     }
+    public function update(Request $request, $id)
+    {   //return $request->all();
+        $file = file::find($id);
+        $file->name=$request->name;
+        $file->save();
+        return response(['file' => $file, 'message' => 'data updated successfully'],201);
+    }
+    public function delete($id)
+    {
+        $file = file::destroy($id);
+        return response(['file' => $file, 'message' => 'data deleted successfully'],401);
+        
+    }
 }

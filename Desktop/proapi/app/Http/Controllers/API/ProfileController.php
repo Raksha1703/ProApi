@@ -20,4 +20,18 @@ class ProfileController extends Controller
         $profile = profile::create($data);
         return response(['profile' => $profile, 'message' => 'data save successfully'],201);
     }
+    public function update(Request $request, $id)
+    {   //return $request->all();
+        $profile = profile::find($id);
+        $profile->name=$request->name;
+        $profile->save();
+        return response(['profile' => $profile, 'message' => 'data updated successfully'],201);
+    }
+
+    public function delete($id)
+    {
+        $profile = profile::destroy($id);
+        return response(['profile' => $profile, 'message' => 'data deleted successfully'],401);
+        
+    }
 }
