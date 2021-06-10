@@ -24,6 +24,8 @@ class CategoryController extends Controller
     {   //return $request->all();
         $category = category::find($id);
         $category->name=$request->name;
+        $category->slug=$request->slug;
+        $category->type=$request->type;
         $category->save();
         return response(['category' => $category, 'message' => 'data updated successfully'],201);
     }

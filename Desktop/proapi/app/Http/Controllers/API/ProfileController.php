@@ -24,6 +24,24 @@ class ProfileController extends Controller
     {   //return $request->all();
         $profile = profile::find($id);
         $profile->name=$request->name;
+        $profile->dob=$request->dob;
+        $profile->address=$request->address;
+        $profile->city=$request->city;
+        $profile->state=$request->state;
+        $profile->country=$request->country;
+        $profile->gender=$request->gender;
+        $profile->phonenumber=$request->phonenumber;
+        $profile->semester=$request->semester;
+        $profile->clgname=$request->clgname;
+        $profile->course=$request->course;
+        $profile->role=$request->role;
+        $profile->pid=$request->pid;
+        $profile->qualification=$request->qualification;
+        $profile->technology=$request->technology;
+        $profile->cover=$request->cover;
+        $profile->avtar=$request->avtar;
+        $profile->status=$request->status;
+        $profile->email=$request->email;
         $profile->save();
         return response(['profile' => $profile, 'message' => 'data updated successfully'],201);
     }

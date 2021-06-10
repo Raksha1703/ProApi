@@ -23,7 +23,9 @@ class TaskController extends Controller
     public function update(Request $request, $id)
     {   //return $request->all();
         $task = task::find($id);
-        $task->name=$request->name;
+        $task->title=$request->title;
+        $task->priority=$request->priority;
+        $task->status=$request->status;
         $task->save();
         return response(['task' => $task, 'message' => 'data updated successfully'],201);
     }

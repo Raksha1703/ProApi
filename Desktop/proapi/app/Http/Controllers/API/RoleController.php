@@ -24,6 +24,7 @@ class RoleController extends Controller
     {   //return $request->all();
         $role = role::find($id);
         $role->name=$request->name;
+        $role->slug=$request->slug;
         $role->save();
         return response(['role' => $role, 'message' => 'data updated successfully'],201);
     }

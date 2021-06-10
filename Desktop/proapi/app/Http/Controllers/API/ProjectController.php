@@ -26,6 +26,11 @@ class ProjectController extends Controller
     {   //return $request->all();
         $project = project::find($id);
         $project->name=$request->name;
+        $project->technology=$request->technology;
+        $project->startdate=$request->startdate;
+        $project->enddate=$request->enddate;
+        $project->status=$request->status;
+        $project->desc=$request->desc;
         $project->save();
         return response(['project' => $project, 'message' => 'data updated successfully'],201);
     }
