@@ -9,7 +9,7 @@ use App\Http\Controllers\API\TaskController;
 use App\Http\Controllers\API\FileController;
 use App\Http\Controllers\API\RoleController;
 use App\Http\Controllers\API\CategoryController;
-
+use App\Http\Controllers\API\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +25,8 @@ use App\Http\Controllers\API\CategoryController;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::get('/login', [AuthController::class, 'login']); 
+
 Route::get('/profile', [ProfileController::class, 'index']);
 Route::post('/profile', [ProfileController::class, 'save']);
 Route::put('/profile/{id}', [ProfileController::class, 'update']);
@@ -55,3 +57,8 @@ Route::get('/category', [CategoryController::class, 'index']);
 Route::post('/category', [CategoryController::class, 'save']);
 Route::put('/category/{id}', [CategoryController::class, 'update']);
 Route::delete('/category/{id}', [CategoryController::class, 'delete']);
+
+Route::get('/user', [UserController::class, 'index']);
+Route::post('/user', [UserController::class, 'save']);
+Route::put('/user/{id}', [UserController::class, 'update']);
+Route::delete('/user/{id}', [UserController::class, 'delete']);

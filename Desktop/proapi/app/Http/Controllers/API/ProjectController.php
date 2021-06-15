@@ -38,7 +38,7 @@ class ProjectController extends Controller
     public function delete($id)
     {
         $project = project::destroy($id);
-        return response(['project' => $project, 'message' => 'data deleted successfully'],401);
+        return response(['project' => $project, 'message' => 'data deleted successfully'],201);
         
     }
 }

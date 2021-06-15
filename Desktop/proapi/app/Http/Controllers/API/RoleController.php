@@ -31,7 +31,7 @@ class RoleController extends Controller
     public function delete($id)
     {
         $role = role::destroy($id);
-        return response(['role' => $role, 'message' => 'data deleted successfully'],401);
+        return response(['role' => $role, 'message' => 'data deleted successfully'],201);
         
     }
 }

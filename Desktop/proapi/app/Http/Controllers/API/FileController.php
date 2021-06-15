@@ -34,7 +34,7 @@ class FileController extends Controller
     public function delete($id)
     {
         $file = file::destroy($id);
-        return response(['file' => $file, 'message' => 'data deleted successfully'],401);
+        return response(['file' => $file, 'message' => 'data deleted successfully'],201);
         
     }
 }

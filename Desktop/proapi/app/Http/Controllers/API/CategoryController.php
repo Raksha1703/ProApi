@@ -32,7 +32,7 @@ class CategoryController extends Controller
     public function delete($id)
     {
         $category = category::destroy($id);
-        return response(['category' => $category, 'message' => 'data deleted successfully'],401);
+        return response(['category' => $category, 'message' => 'data deleted successfully'],201);
         
     }
 }

@@ -49,7 +49,7 @@ class ProfileController extends Controller
     public function delete($id)
     {
         $profile = profile::destroy($id);
-        return response(['profile' => $profile, 'message' => 'data deleted successfully'],401);
+        return response(['profile' => $profile, 'message' => 'data deleted successfully'],201);
         
     }
 }

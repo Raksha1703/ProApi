@@ -32,7 +32,7 @@ class TaskController extends Controller
     public function delete($id)
     {
         $task = task::destroy($id);
-        return response(['task' => $task, 'message' => 'data deleted successfully'],401);
+        return response(['task' => $task, 'message' => 'data deleted successfully'],201);
         
     }
 }
